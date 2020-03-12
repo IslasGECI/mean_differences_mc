@@ -14,7 +14,7 @@ class TestSwitchElements(unittest.TestCase):
 
     def test_switch_elements(self):
         """
-        Verifica que la función `make_dict_from_id_index` genere el diccionario correcto. 
+        Verifica que la función `switch_elements` genere dos listas con elementos cambiados
         """
         A_final, B_final = switch_elements(self.A_initial, self.B_initial, self.index)
         self.assertEqual(self.A_final, A_final)
