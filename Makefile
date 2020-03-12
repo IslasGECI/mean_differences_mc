@@ -1,3 +1,5 @@
+.PHONY: clean mutation tests
+
 mutation:
 	mutmut run --paths-to-mutate mean_differences_mc 
 
