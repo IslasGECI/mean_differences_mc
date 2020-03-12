@@ -30,9 +30,10 @@ class TestSwitchElements(unittest.TestCase):
         """
         Verifica que la función `index_to_switch` genere dos indices correctos
         """
-        index = index_to_switch()
+        max_lim = 3
+        index = index_to_switch(max_lim)
         self.assertEqual(self.testing_index[0:2], index)
-        index = index_to_switch()
+        index = index_to_switch(max_lim)
         self.assertEqual(self.testing_index[2:4], index)
 
 if __name__ == '__main__':
