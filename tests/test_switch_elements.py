@@ -1,7 +1,7 @@
 import unittest
 from mean_differences_mc import *
 
-class TestIndexFromId(unittest.TestCase):
+class TestSwitchElements(unittest.TestCase):
     def setUp(self):
         """
         Crea variables que se usarán en las pruebas
