@@ -1,2 +1,3 @@
 def index_to_switch():
-    pass
+    index = [1, 0]
+    return(index)
