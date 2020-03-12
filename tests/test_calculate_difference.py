@@ -9,6 +9,7 @@ class TestCalculateDifference(unittest.TestCase):
         self.A_initial: list = [3, 3, 3, 3]
         self.B_initial: list = [7, 7, 7, 7]
         self.difference: int = -16
+        self.difference_2: int = 16
 
     def test_calculate_difference(self):
         """
@@ -16,6 +17,8 @@ class TestCalculateDifference(unittest.TestCase):
         """
         difference = calculate_difference(self.A_initial, self.B_initial)
         self.assertEqual(self.difference, difference)
+        difference = calculate_difference(self.B_initial, self.A_initial)
+        self.assertEqual(self.difference_2, difference)
 
 if __name__ == '__main__':
     unittest.main()
