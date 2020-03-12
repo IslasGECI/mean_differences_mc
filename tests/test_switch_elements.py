@@ -21,7 +21,7 @@ class TestSwitchElements(unittest.TestCase):
         self.assertEqual(self.B_final, B_final)
         A_final, B_final = switch_elements(self.A_final, self.B_final, self.index)
         self.assertEqual(self.A_initial, A_final)
-        self.assertEqual(self.A_initial, A_final)
+        self.assertEqual(self.B_initial, B_final)
 
 if __name__ == '__main__':
     unittest.main()
