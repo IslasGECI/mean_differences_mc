@@ -12,7 +12,7 @@ class TestSwitchElements(unittest.TestCase):
         self.index: list = [1, 3]
         self.A_final: list = [3, 7, 3, 3]
         self.B_final: list = [7, 7, 7, 3]
-        self.testing_index: list = [1, 0, 2, 0]
+        self.testing_index: list = [1, 0, 2, 0, 15, 24]
         seed(1)
 
     def test_switch_elements(self):
@@ -35,6 +35,9 @@ class TestSwitchElements(unittest.TestCase):
         self.assertEqual(self.testing_index[0:2], index)
         index = index_to_switch(max_lim)
         self.assertEqual(self.testing_index[2:4], index)
+        max_lim = 30
+        index = index_to_switch(max_lim)
+        self.assertEqual(self.testing_index[4:6], index)
 
 if __name__ == '__main__':
     unittest.main()
