@@ -8,8 +8,9 @@ class Tester_Significant_Difference:
 
     @property
     def sample_a(self):
-        return(np.array([3, 3, 3, 3]))
+        return(self.__sample_a)
 
     @sample_a.setter
     def sample_a(self, sample_a : pd.DataFrame):
-        pass
+        name_column = sample_a.columns[0]
+        self.__sample_a = np.array(sample_a[name_column])
