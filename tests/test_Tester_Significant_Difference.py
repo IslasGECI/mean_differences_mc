@@ -10,7 +10,7 @@ class TestTesterSignificantDifference(unittest.TestCase):
         """
         Crea variables que se usarán en las pruebas
         """
-        self.sample_a : pd.DataFrame = pd.DataFrame({'sample_a' : [3, 3, 3, 3]})
+        self.sample_a : pd.DataFrame = pd.DataFrame({'sample_a' : [3., 3., 3., 3.]})
         self.sample_a_array : np.array = np.array(self.sample_a['sample_a'])
         self.sample_b : pd.DataFrame = pd.DataFrame({'sample_b' : [7, 7, 7, 7]})
         self.sample_b_array : np.array = np.array(self.sample_b['sample_b'])
@@ -29,9 +29,7 @@ class TestTesterSignificantDifference(unittest.TestCase):
         self.Probador_Diferencias_Significativas.sample_a = self.sample_a
         muestra_a : np.array = self.Probador_Diferencias_Significativas.sample_a
         self.assertTrue((self.sample_a_array == muestra_a).all())
-        self.Probador_Diferencias_Significativas.sample_a = self.sample_b
-        muestra_a : np.array = self.Probador_Diferencias_Significativas.sample_a
-        self.assertTrue((self.sample_b_array == muestra_a).all())
+
         self.Probador_Diferencias_Significativas.sample_b = self.sample_b
         muestra_b : np.array = self.Probador_Diferencias_Significativas.sample_b
         self.assertTrue((self.sample_b_array == muestra_b).all())
