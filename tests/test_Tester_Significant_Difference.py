@@ -19,6 +19,15 @@ class TestTesterSignificantDifference(unittest.TestCase):
         self.sample_b_final: np.array = np.array([7., 7., 7., 3.])
         self.Probador_Diferencias_Significativas: Tester_Significant_Difference = Tester_Significant_Difference()
 
+    def switch_elements_arrays(self):
+        self.A_inicial = self.sample_a_array
+        self.B_inicial = self.sample_b_array
+        self.A_final: np.array = np.copy(self.A_inicial)
+        self.A_final[self.index[0]] = B[self.index[1]]
+        self.B_final: np.array = np.copy(self.B_inicial)
+        self.B_final[self.index[1]] = A[self.index[0]]
+        return(self.A_final, self.B_final)
+
     def test_initialization(self):
         """
         Verifica que los objetos de las clase `Tester_Significant_Difference` se construyan de manera correcta. 
@@ -48,7 +57,7 @@ class TestTesterSignificantDifference(unittest.TestCase):
         """
         self.Probador_Diferencias_Significativas.sample_a = self.sample_a
         self.Probador_Diferencias_Significativas.sample_b = self.sample_b
-        self.Probador_Diferencias_Significativas.switch_elements(self.index)
+        self.Probador_Diferencias_Significativas.switch_elements_arrays(self.index)
         muestra_a: np.array = self.Probador_Diferencias_Significativas.sample_a
         self.assertTrue((self.sample_a_final == muestra_a).all())
         muestra_b: np.array = self.Probador_Diferencias_Significativas.sample_b
