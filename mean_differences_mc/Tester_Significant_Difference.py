@@ -1,7 +1,4 @@
-import pandas as pd
-import numpy as np
-from mean_differences_mc import *
-
+from .switch_elements import *
 
 class Tester_Significant_Difference:
     def __init__(self):
@@ -27,4 +24,4 @@ class Tester_Significant_Difference:
         self.__sample_b = np.append(self._sample_b, np.array(sample_b[name_column]))
 
     def switch_elements(self, index):
-        self.muestra_a, self.muestra_b=switch_elements(self.muestra_a, self.muestra_b, index)
+        self.sample_a, self.sample_b = switch_elements_arrays(self.sample_a, self.sample_b, index)
