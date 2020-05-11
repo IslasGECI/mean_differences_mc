@@ -3,6 +3,7 @@ import datetime
 import pandas as pd
 import numpy as np
 from mean_differences_mc import *
+from random import seed
 
 
 class TestTesterSignificantDifference(unittest.TestCase):
@@ -18,6 +19,8 @@ class TestTesterSignificantDifference(unittest.TestCase):
         self.sample_a_final: np.array = np.array([1., 8., 3., 4.])
         self.sample_b_final: np.array = np.array([5., 6., 7., 2.])
         self.Probador_Diferencias_Significativas: Tester_Significant_Difference = Tester_Significant_Difference()
+        self.testing_index: list = [1, 0, 2, 0, 15, 24]
+        seed(1)
 
     def test_initialization(self):
         """
@@ -53,6 +56,15 @@ class TestTesterSignificantDifference(unittest.TestCase):
         self.assertTrue((self.sample_a_final == muestra_a).all())
         muestra_b: np.array = self.Probador_Diferencias_Significativas.sample_b
         self.assertTrue((self.sample_b_final == muestra_b).all())
+
+    def test_index_to_switch(self):
+        """
+        Verifica que la función `index_to_switch` genere dos indices correctos
+        """
+        sample_a: pd.DataFrame = pd.DataFrame({"sample_a": range(3)})
+        self.Probador_Diferencias_Significativas.sample_a = sample_a
+        index = self.Probador_Diferencias_Significativas.index_to_switch()
+        self.assertEqual(self.testing_index[0:2], index)
 
 if __name__ == "__main__":
     unittest.main()
