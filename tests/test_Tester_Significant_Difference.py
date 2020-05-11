@@ -10,13 +10,13 @@ class TestTesterSignificantDifference(unittest.TestCase):
         """
         Crea variables que se usarán en las pruebas
         """
-        self.sample_a: pd.DataFrame = pd.DataFrame({"sample_a": [3.0, 3.0, 3.0, 3.0]})
+        self.sample_a: pd.DataFrame = pd.DataFrame({"sample_a": [1.0, 2.0, 3.0, 4.0]})
         self.sample_a_array: np.array = np.array(self.sample_a["sample_a"])
-        self.sample_b: pd.DataFrame = pd.DataFrame({"sample_b": [7, 7, 7, 7]})
+        self.sample_b: pd.DataFrame = pd.DataFrame({"sample_b": [5, 6, 7, 8]})
         self.sample_b_array: np.array = np.array(self.sample_b["sample_b"])
         self.index: list = [1, 3]
-        self.sample_a_final: np.array = np.array([3., 7., 3., 3.])
-        self.sample_b_final: np.array = np.array([7., 7., 7., 3.])
+        self.sample_a_final: np.array = np.array([1., 8., 3., 4.])
+        self.sample_b_final: np.array = np.array([5., 6., 7., 2.])
         self.Probador_Diferencias_Significativas: Tester_Significant_Difference = Tester_Significant_Difference()
 
     def test_initialization(self):
