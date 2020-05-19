@@ -65,6 +65,12 @@ class TestTesterSignificantDifference(unittest.TestCase):
         self.Probador_Diferencias_Significativas.sample_a = sample_a
         index = self.Probador_Diferencias_Significativas.index_to_switch()
         self.assertEqual(self.testing_index[0:2], index)
+        index = self.Probador_Diferencias_Significativas.index_to_switch()
+        self.assertEqual(self.testing_index[2:4], index)
+        sample_a: pd.DataFrame = pd.DataFrame({"sample_a": range(30)})
+        self.Probador_Diferencias_Significativas.sample_a = sample_a
+        index = self.Probador_Diferencias_Significativas.index_to_switch()
+        self.assertEqual(self.testing_index[4:6], index)
 
 if __name__ == "__main__":
     unittest.main()
