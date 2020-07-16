@@ -8,7 +8,7 @@ B_initial_test: list = [7, 7, 7, 7]
 index_test: list = [1, 3]
 A_final_test: list = [3, 7, 3, 3]
 B_final_test: list = [7, 7, 7, 3]
-testing_index: list = [1, 0, 2, 0, 15, 24]
+testing_index: list = [3, 3, 3, 1, 3, 15]
 seed(1)
 
 def test_switch_elements():
