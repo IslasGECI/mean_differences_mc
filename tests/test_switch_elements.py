@@ -2,6 +2,7 @@ import unittest
 from mean_differences_mc import *
 from random import seed
 
+
 class TestSwitchElements(unittest.TestCase):
     def setUp(self):
         """
@@ -39,5 +40,6 @@ class TestSwitchElements(unittest.TestCase):
         index = index_to_switch(max_lim)
         self.assertEqual(self.testing_index[4:6], index)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -1,6 +1,7 @@
 from .switch_elements import *
 from .index_switch import index_to_switch
 
+
 class Tester_Significant_Difference:
     def __init__(self):
         self._sample_a: np.array = np.array([])
@@ -29,4 +30,4 @@ class Tester_Significant_Difference:
 
     def index_to_switch(self):
         lim_max = len(self.sample_a)
-        return(index_to_switch(lim_max))
+        return index_to_switch(lim_max)
