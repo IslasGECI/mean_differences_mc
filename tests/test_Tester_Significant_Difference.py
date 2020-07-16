@@ -57,11 +57,11 @@ def test_index_to_switch():
     sample_a: pd.DataFrame = pd.DataFrame({"sample_a": range(3)})
     Probador_Diferencias_Significativas_test.sample_a = sample_a
     index = Probador_Diferencias_Significativas_test.index_to_switch()
-    self.assertEqual(testing_index_test[0:2], index)
+    assert testing_index_test[0:2] == index
     index = Probador_Diferencias_Significativas_test.index_to_switch()
-    self.assertEqual(testing_index_test[2:4], index)
+    assert testing_index_test[2:4] == index
     sample_a: pd.DataFrame = pd.DataFrame({"sample_a": range(30)})
     Probador_Diferencias_Significativas_test.sample_a = sample_a
     index = Probador_Diferencias_Significativas_test.index_to_switch()
-    self.assertEqual(testing_index_test[4:6], index)
+    assert testing_index_test[4:6] == index
 
