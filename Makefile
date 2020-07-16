@@ -1,4 +1,4 @@
-.PHONY: clean format lint matation tests
+.PHONY: clean format lint matants tests
 
 repo = mean_differences_mc
 codecov_token = a786f529-2c0a-4f0a-b711-11cdbf362b10
@@ -19,7 +19,7 @@ lint:
 	pylint ${repo}
 	pylint tests
 
-mutation:
+mutants:
 	mutmut run --paths-to-mutate mean_differences_mc 
 
 tests:
