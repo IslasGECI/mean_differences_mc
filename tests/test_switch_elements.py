@@ -11,6 +11,7 @@ B_final_test: list = [7, 7, 7, 3]
 testing_index: list = [3, 3, 3, 1, 3, 15]
 seed(1)
 
+
 def test_switch_elements():
     """
     Verifica que la función `switch_elements` genere dos listas con elementos cambiados
@@ -21,6 +22,7 @@ def test_switch_elements():
     A_final, B_final = switch_elements(A_final_test, B_final_test, index_test)
     assert A_initial_test == A_final
     assert B_initial_test == B_final
+
 
 def test_index_to_switch():
     """

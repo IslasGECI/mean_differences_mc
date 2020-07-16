@@ -17,13 +17,13 @@ Probador_Diferencias_Significativas_test: Tester_Significant_Difference = Tester
 testing_index_test: list = [1, 0, 2, 0, 15, 24]
 seed(1)
 
+
 def test_initialization():
     """
     Verifica que los objetos de las clase `Tester_Significant_Difference` se construyan de manera correcta. 
     """
-    assert (
-        type(Probador_Diferencias_Significativas_test) == Tester_Significant_Difference,
-    )
+    assert (type(Probador_Diferencias_Significativas_test) == Tester_Significant_Difference,)
+
 
 def test_read_samples():
     """
@@ -37,6 +37,7 @@ def test_read_samples():
     muestra_b: np.array = Probador_Diferencias_Significativas_test.sample_b
     assert np.array_equal(sample_b_test_array, muestra_b)
 
+
 def test_switch_elements():
     """
     Verifica que los objetos de las clase `Tester_Significant_Difference` permute dos elementos 
@@ -49,6 +50,7 @@ def test_switch_elements():
     assert np.array_equal(sample_a_test_final, muestra_a)
     muestra_b: np.array = Probador_Diferencias_Significativas_test.sample_b
     assert np.array_equal(sample_b_test_final, muestra_b)
+
 
 def test_index_to_switch():
     """
@@ -64,4 +66,3 @@ def test_index_to_switch():
     Probador_Diferencias_Significativas_test.sample_a = sample_a
     index = Probador_Diferencias_Significativas_test.index_to_switch()
     assert testing_index_test[4:6] == index
-
