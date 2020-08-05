@@ -1,4 +1,5 @@
 import unittest
+import pytest
 from mean_differences_mc import *
 from random import seed
 
@@ -36,3 +37,15 @@ def test_index_to_switch():
     max_lim = 30
     index = index_to_switch(max_lim)
     assert testing_index[4:6] == index
+
+
+def test_calculate_mean_difference():
+    """
+    Verifica que calcula bien las diferencias de los promedios 
+    """
+    expected_mean_difference = -4.0
+    obtained_mean_difference = calculate_mean_difference(A_initial_test, B_initial_test)
+    assert expected_mean_difference == pytest.approx(obtained_mean_difference,0.01)
+    expected_mean_difference = -2.0
+    obtained_mean_difference = calculate_mean_difference(A_final_test, B_final_test)
+    assert expected_mean_difference == pytest.approx(obtained_mean_difference,0.01)
