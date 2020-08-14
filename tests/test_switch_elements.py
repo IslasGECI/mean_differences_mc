@@ -49,3 +49,11 @@ def test_calculate_mean_difference():
     expected_mean_difference = -2.0
     obtained_mean_difference = calculate_mean_difference(A_final_test, B_final_test)
     assert expected_mean_difference == pytest.approx(obtained_mean_difference, 0.01)
+
+def test_calculate_mean_switched_difference():
+    """
+    Verifica que calcula un arreglo de diferencias
+    """
+    expected_mean_switched_difference = [-2.0, 0.0, 0.0, 0.0, 0.0, -2.0]
+    obtained_mean_switched_difference = calculate_mean_switched_difference(A_initial_test, B_initial_test, switches = 6)
+    assert expected_mean_switched_difference == obtained_mean_switched_difference
