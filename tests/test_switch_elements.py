@@ -1,4 +1,3 @@
-import unittest
 import pytest
 from mean_differences_mc import *
 from random import seed
