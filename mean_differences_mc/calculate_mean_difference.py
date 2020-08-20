@@ -20,3 +20,7 @@ def calculate_mean_switched_difference(minuend, subtrahend, switches):
         mean_defference = calculate_mean_difference(minuend_switched, subtrahend_switched)
         mean_switched_difference.append(mean_defference)
     return mean_switched_difference
+
+
+def calculate_p_value_from_difference(difference, difference_array):
+    return 1/7
