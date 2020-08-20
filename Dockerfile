@@ -11,5 +11,6 @@ RUN pip install \
     pylint \
     pylint-fail-under \
     pytest-cov \
-    pytest==5.0.1 
+    pytest \
+    rope
 CMD make
