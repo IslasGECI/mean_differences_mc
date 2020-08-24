@@ -10,6 +10,7 @@ A_final_test: list = [3, 7, 3, 3]
 B_final_test: list = [7, 7, 7, 3]
 testing_index: list = [3, 3, 3, 1, 3, 15]
 expected_mean_switched_difference = [-2.0, 0.0, 0.0, 0.0, 0.0, -2.0]
+expected_p_value: float = 0
 seed(1)
 
 
@@ -62,6 +63,5 @@ def test_calculate_p_value_from_difference():
     """
     Verifica que el p-valor sea el correcto
     """
-    expected_p_value = 1/7
-    obtained_p_value = calculate_p_value_from_difference(difference = 4, difference_array =expected_mean_switched_difference)
-    assert expected_p_value == pytest.approx(obtained_p_value, 0.01)
+    obtained_p_value = calculate_p_value_from_difference(difference = 4, difference_array = expected_mean_switched_difference)
+    assert expected_p_value == pytest.approx(obtained_p_value, rel = 1e-3)
