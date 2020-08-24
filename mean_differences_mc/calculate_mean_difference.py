@@ -23,4 +23,6 @@ def calculate_mean_switched_difference(minuend, subtrahend, switches):
 
 
 def calculate_p_value_from_difference(difference, difference_array):
-    return 1/7
+    mask = np.array(difference_array) >= difference
+    significant_diferences = np.sum([mask])
+    return significant_diferences/len(difference_array)
