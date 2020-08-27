@@ -42,7 +42,7 @@ def test_index_to_switch():
 
 def test_calculate_mean_difference():
     """
-    Verifica que calcula bien las diferencias de los promedios 
+    Verifica que calcula bien las diferencias de los promedios
     """
     expected_mean_difference = -4.0
     obtained_mean_difference = calculate_mean_difference(A_initial_test, B_initial_test)
@@ -51,11 +51,14 @@ def test_calculate_mean_difference():
     obtained_mean_difference = calculate_mean_difference(A_final_test, B_final_test)
     assert expected_mean_difference == pytest.approx(obtained_mean_difference, 0.01)
 
+
 def test_calculate_mean_switched_difference():
     """
     Verifica que calcula un arreglo de diferencias
     """
-    obtained_mean_switched_difference = calculate_mean_switched_difference(A_initial_test, B_initial_test, switches = 6)
+    obtained_mean_switched_difference = calculate_mean_switched_difference(
+        A_initial_test, B_initial_test, switches=6
+    )
     assert expected_mean_switched_difference == obtained_mean_switched_difference
 
 
@@ -63,5 +66,7 @@ def test_calculate_p_value_from_difference():
     """
     Verifica que el p-valor sea el correcto
     """
-    obtained_p_value = calculate_p_value_from_difference(difference = 4, difference_array = expected_mean_switched_difference)
-    assert expected_p_value == pytest.approx(obtained_p_value, rel = 1e-3)
+    obtained_p_value = calculate_p_value_from_difference(
+        difference=4, difference_array=expected_mean_switched_difference
+    )
+    assert expected_p_value == pytest.approx(obtained_p_value, rel=1e-3)
