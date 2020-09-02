@@ -14,7 +14,7 @@ def calculate_mean_switched_difference(minuend, subtrahend, switches):
     minuend_switched = minuend
     subtrahend_switched = subtrahend
     mean_switched_difference = []
-    for i_switch in range(switches):
+    for _ in range(switches):
         index_test = index_to_switch(max_lim)
         minuend_switched, subtrahend_switched = switch_elements(
             minuend_switched, subtrahend_switched, index_test

@@ -3,18 +3,18 @@ import pandas as pd
 
 
 def switch_elements(A: list, B: list, index: list):
-    A_final: list = A.copy()
-    A_final[index[0]] = B[index[1]]
-    B_final: list = B.copy()
-    B_final[index[1]] = A[index[0]]
-    return (A_final, B_final)
+    a_final: list = A.copy()
+    a_final[index[0]] = B[index[1]]
+    b_final: list = B.copy()
+    b_final[index[1]] = A[index[0]]
+    return (a_final, b_final)
 
 
 def switch_elements_arrays(A: np.array, B: np.array, index: list):
-    A_final: np.array = np.copy(A)
-    A_final[index[0]] = B[index[1]]
-    B_final: np.array = np.copy(B)
-    B_final[index[1]] = A[index[0]]
-    A_final_dataframe = pd.DataFrame(A_final)
-    B_final_dataframe = pd.DataFrame(B_final)
-    return (A_final_dataframe, B_final_dataframe)
+    a_final: np.array = np.copy(A)
+    a_final[index[0]] = B[index[1]]
+    b_final: np.array = np.copy(B)
+    b_final[index[1]] = A[index[0]]
+    a_final_dataframe = pd.DataFrame(a_final)
+    b_final_dataframe = pd.DataFrame(b_final)
+    return (a_final_dataframe, b_final_dataframe)

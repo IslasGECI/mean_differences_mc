@@ -2,7 +2,7 @@ from .switch_elements import *
 from .index_switch import index_to_switch
 
 
-class Tester_Significant_Difference:
+class TesterSignificantDifference:
     def __init__(self):
         self._sample_a: np.array = np.array([])
         self._sample_b: np.array = np.array([])
