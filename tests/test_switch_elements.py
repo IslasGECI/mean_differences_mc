@@ -76,3 +76,8 @@ def test_calculate_p_value_from_difference():
         difference=4, difference_array=expected_mean_switched_difference_2
     )
     assert expected_p_value_2 == pytest.approx(obtained_p_value, rel=1e-3)
+
+
+def test_generalized_monte_carlo_test():
+    obtained_p_value = generalized_monte_carlo_test(A_initial_test, B_initial_test, switches=6)
+    assert expected_p_value == pytest.approx(obtained_p_value, rel=1e-3)
