@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3
 COPY . /workdir
 WORKDIR /workdir
 RUN pip install \
@@ -9,8 +9,7 @@ RUN pip install \
     mutmut \
     pandas \
     pylint \
-    pylint-fail-under \
-    pytest-cov \
     pytest \
+    pytest-cov \
     rope
 CMD make
