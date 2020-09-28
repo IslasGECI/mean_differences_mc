@@ -13,6 +13,7 @@ expected_mean_switched_difference = [-2.0, 0.0, 0.0, 0.0, 0.0, -2.0]
 expected_p_value: float = 0
 expected_mean_switched_difference_2 = [4.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 expected_p_value_2: float = 1 / 6
+chapman_4_2_p_value: float = 0.01
 seed(1)
 
 
@@ -79,5 +80,16 @@ def test_calculate_p_value_from_difference():
 
 
 def test_generalized_monte_carlo_test():
-    obtained_p_value = generalized_monte_carlo_test(A_initial_test, B_initial_test, switches=6)
-    assert expected_p_value == pytest.approx(obtained_p_value, rel=1e-3)
+    data_chapman_example_4_2 = pd.read_csv("reports/tables/ejemplo_4_2_chapman.csv")
+    data_males = (
+        data_chapman_example_4_2[data_chapman_example_4_2["sex"] == "males"]
+        .reset_index(drop=True)["mandible_lengths"]
+        .values.tolist()
+    )
+    data_females = (
+        data_chapman_example_4_2[data_chapman_example_4_2["sex"] == "females"]
+        .reset_index(drop=True)["mandible_lengths"]
+        .values.tolist()
+    )
+    obtained_p_value = generalized_monte_carlo_test(data_males, data_females, switches=100)
+    assert chapman_4_2_p_value == obtained_p_value

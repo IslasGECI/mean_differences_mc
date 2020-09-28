@@ -1,4 +1,3 @@
-import numpy as np
 from mean_differences_mc import *
 
 
@@ -11,8 +10,8 @@ def calculate_mean_difference(minuend, subtrahend):
 
 def calculate_mean_switched_difference(minuend, subtrahend, switches):
     max_lim = len(minuend) - 1
-    minuend_switched = minuend
-    subtrahend_switched = subtrahend
+    minuend_switched = np.copy(minuend)
+    subtrahend_switched = np.copy(subtrahend)
     mean_switched_difference = []
     for _ in range(switches):
         index_test = index_to_switch(max_lim)
