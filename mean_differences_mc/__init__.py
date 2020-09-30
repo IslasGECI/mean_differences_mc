@@ -1,5 +1,5 @@
-from .TesterSignificantDifference import *
-from .switch_elements import *
-from .index_switch import *
-from .calculate_mean_difference import *
-from .generalized_monte_carlo_test import *
+from .TesterSignificantDifference import *  # noqa
+from .switch_elements import *  # noqa
+from .index_switch import *  # noqa
+from .calculate_mean_difference import *  # noqa
+from .generalized_monte_carlo_test import *  # noqa
