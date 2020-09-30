@@ -1,9 +1,24 @@
 all: mutants
 
-.PHONY: all clean format install lint mutants tests
+.PHONY: all check clean format install linter mutants tests
 
 module = mean_differences_mc
 codecov_token = a786f529-2c0a-4f0a-b711-11cdbf362b10
+
+define lint
+	pylint \
+        --disable=bad-continuation \
+        --disable=missing-class-docstring \
+        --disable=missing-function-docstring \
+        --disable=missing-module-docstring \
+        ${1}
+endef
+
+check:
+	black --check --line-length 100 ${module}
+	black --check --line-length 100 tests
+	flake8 --max-line-length 100 ${module}
+	flake8 --max-line-length 100 tests
 
 clean:
 	rm --force --recursive .pytest_cache
@@ -13,25 +28,15 @@ clean:
 	rm --force .mutmut-cache
 
 format:
-	black --check --line-length 100 ${module}
-	black --check --line-length 100 tests
+	black --line-length 100 ${module}
+	black --line-length 100 tests
 
 install:
 	pip install --editable .
 
-lint:
-	flake8 --max-line-length 100 ${module}
-	flake8 --max-line-length 100 tests
-	pylint \
-        --disable=bad-continuation \
-        --disable=missing-function-docstring \
-        --disable=missing-module-docstring \
-        ${module}
-	pylint \
-        --disable=bad-continuation \
-        --disable=missing-function-docstring \
-        --disable=missing-module-docstring \
-        test
+linter:
+	$(call lint, ${module})
+	$(call lint, tests)
 
 mutants:
 	mutmut run --paths-to-mutate ${module}
