@@ -93,3 +93,10 @@ def test_generalized_monte_carlo_test():
     )
     obtained_p_value = generalized_monte_carlo_test(data_males, data_females, switches=100)
     assert chapman_4_2_p_value == obtained_p_value
+
+
+def test_generalized_monte_carlo_test_value_error():
+    sample_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    sample_b = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+    with pytest.raises(ValueError, match="^sample_a and sample_b must be of the same length$"):
+        generalized_monte_carlo_test(sample_a, sample_b)
