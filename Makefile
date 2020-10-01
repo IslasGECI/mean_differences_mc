@@ -1,6 +1,6 @@
 all: mutants
 
-.PHONY: all check clean format install linter mutants tests
+.PHONY: all check clean coverage format install linter mutants tests
 
 module = mean_differences_mc
 codecov_token = a786f529-2c0a-4f0a-b711-11cdbf362b10
@@ -27,6 +27,10 @@ clean:
 	rm --force .coverage
 	rm --force .mutmut-cache
 
+coverage:
+	pytest --cov=${module} --cov-report=xml --verbose && \
+	codecov --token=${codecov_token}
+
 format:
 	black --line-length 100 ${module}
 	black --line-length 100 tests
@@ -42,5 +46,4 @@ mutants:
 	mutmut run --paths-to-mutate ${module}
 
 tests:
-	pytest --cov=${module} --cov-report=xml --verbose && \
-	codecov --token=${codecov_token}
+	pytest --verbose
