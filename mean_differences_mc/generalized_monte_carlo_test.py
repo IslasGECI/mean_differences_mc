@@ -1,7 +1,7 @@
 from mean_differences_mc import *
 
 
-def generalized_monte_carlo_test(sample_a, sample_b, switches=100):
+def generalized_monte_carlo_test(sample_a, sample_b, switches):
     is_different_length = len(sample_a) != len(sample_b)
     if is_different_length:
         raise ValueError("sample_a and sample_b must be of the same length")

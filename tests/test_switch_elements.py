@@ -14,6 +14,9 @@ expected_p_value: float = 0
 expected_mean_switched_difference_2 = [4.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 expected_p_value_2: float = 1 / 6
 chapman_4_2_p_value: float = 0.01
+sample_a: list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+sample_b: list = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+
 seed(1)
 
 
@@ -96,7 +99,5 @@ def test_generalized_monte_carlo_test():
 
 
 def test_generalized_monte_carlo_test_value_error():
-    sample_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    sample_b = [11, 12, 13, 14, 15, 16, 17, 18, 19]
     with pytest.raises(ValueError, match="^sample_a and sample_b must be of the same length$"):
-        generalized_monte_carlo_test(sample_a, sample_b)
+        generalized_monte_carlo_test(sample_a, sample_b, 10)
