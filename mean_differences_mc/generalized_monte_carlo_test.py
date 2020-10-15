@@ -1,4 +1,8 @@
-from mean_differences_mc import *
+from .calculate_mean_difference import (
+    calculate_mean_difference,
+    calculate_mean_switched_difference,
+    calculate_p_value_from_difference,
+)
 
 
 def generalized_monte_carlo_test(sample_a, sample_b, switches):

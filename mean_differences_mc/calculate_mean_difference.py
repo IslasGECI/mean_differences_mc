@@ -1,4 +1,6 @@
-from mean_differences_mc import *
+import numpy as np
+from .switch_elements import switch_elements
+from .index_switch import index_to_switch
 
 
 def calculate_mean_difference(minuend, subtrahend):
