@@ -1,6 +1,16 @@
-import pytest
-from mean_differences_mc import *
 from random import seed
+
+import pandas as pd
+import pytest
+
+from mean_differences_mc import (
+    switch_elements,
+    index_to_switch,
+    calculate_mean_difference,
+    calculate_mean_switched_difference,
+    calculate_p_value_from_difference,
+    generalized_monte_carlo_test,
+)
 
 
 a_initial_test: list = [3, 3, 3, 3]
@@ -8,12 +18,12 @@ b_initial_test: list = [7, 7, 7, 7]
 index_test: list = [1, 3]
 a_final_test: list = [3, 7, 3, 3]
 b_final_test: list = [7, 7, 7, 3]
-testing_index: list = [3, 3, 3, 1, 3, 15]
-expected_mean_switched_difference = [-2.0, 0.0, 0.0, 0.0, 0.0, -2.0]
+testing_index: list = [1, 0, 2, 0, 15, 24]
+expected_mean_switched_difference = [-2.0, -2.0, -2.0, -2.0, -2.0, -2.0]
 expected_p_value: float = 0
 expected_mean_switched_difference_2 = [4.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 expected_p_value_2: float = 1 / 6
-chapman_4_2_p_value: float = 0.01
+chapman_4_2_p_value: float = 0.00
 sample_a: list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 sample_b: list = [11, 12, 13, 14, 15, 16, 17, 18, 19]
 

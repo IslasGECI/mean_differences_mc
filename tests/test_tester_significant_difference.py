@@ -1,9 +1,9 @@
-import datetime
-import pandas as pd
-import numpy as np
-from mean_differences_mc import *
 from random import seed
 
+import numpy as np
+import pandas as pd
+
+from mean_differences_mc import TesterSignificantDifference
 
 sample_a_test: pd.DataFrame = pd.DataFrame({"sample_a": [1.0, 2.0, 3.0, 4.0]})
 sample_a_test_array: np.array = np.array(sample_a_test["sample_a"])
@@ -15,20 +15,22 @@ sample_b_test_final: np.array = np.array([5.0, 6.0, 7.0, 2.0])
 Probador_Diferencias_Significativas_test: TesterSignificantDifference = (
     TesterSignificantDifference()
 )
-testing_index_test: list = [1, 0, 2, 0, 15, 24]
+testing_index_test: list = [0, 0, 1, 3, 5, 26]
 seed(1)
 
 
 def test_initialization():
     """
-    Verifica que los objetos de las clase `TesterSignificantDifference` se construyan de manera correcta.
+    Verifica que los objetos de las clase `TesterSignificantDifference`
+    se construyan de manera correcta.
     """
-    assert (type(Probador_Diferencias_Significativas_test) == TesterSignificantDifference,)
+    assert isinstance(Probador_Diferencias_Significativas_test, TesterSignificantDifference)
 
 
 def test_read_samples():
     """
-    Verifica que los objetos de las clase `TesterSignificantDifference` cargue la muestras a comparar.
+    Verifica que los objetos de las clase `TesterSignificantDifference`
+    cargue la muestras a comparar.
     """
     Probador_Diferencias_Significativas_test.sample_a = sample_a_test
     muestra_a: np.array = Probador_Diferencias_Significativas_test.sample_a
