@@ -10,12 +10,12 @@ def calculate_mean_difference(minuend, subtrahend):
     return mean_diference
 
 
-def calculate_mean_switched_difference(minuend, subtrahend, switches):
+def calculate_mean_switched_difference(minuend, subtrahend, n_switches):
     max_lim = len(minuend) - 1
     minuend_switched = np.copy(minuend)
     subtrahend_switched = np.copy(subtrahend)
     mean_switched_difference = []
-    for _ in range(switches):
+    for _ in range(n_switches):
         index_test = index_to_switch(max_lim)
         minuend_switched, subtrahend_switched = switch_elements(
             minuend_switched, subtrahend_switched, index_test

@@ -73,7 +73,7 @@ def test_calculate_mean_switched_difference():
     Verifica que calcula un arreglo de diferencias
     """
     obtained_mean_switched_difference = calculate_mean_switched_difference(
-        a_initial_test, b_initial_test, switches=6
+        a_initial_test, b_initial_test, n_switches=6
     )
     assert expected_mean_switched_difference == obtained_mean_switched_difference
 
@@ -96,7 +96,7 @@ def test_generalized_monte_carlo_test():
     data_chapman_example_4_2 = pd.read_csv("reports/tables/ejemplo_4_2_chapman.csv")
     data_males = _select_sex(data_chapman_example_4_2, "males")
     data_females = _select_sex(data_chapman_example_4_2, "females")
-        .reset_index(drop=True)["mandible_lengths"]
+    obtained_p_value = generalized_monte_carlo_test(data_males, data_females, n_switches=100)
     assert chapman_4_2_p_value == obtained_p_value
 
 
@@ -106,8 +106,6 @@ def _select_sex(data_chapman_example_4_2, sex):
         .reset_index(drop=True)["mandible_lengths"]
         .values.tolist()
     )
-    obtained_p_value = generalized_monte_carlo_test(data_males, data_females, switches=100)
-    assert chapman_4_2_p_value == obtained_p_value
 
 
 def test_generalized_monte_carlo_test_value_error():
