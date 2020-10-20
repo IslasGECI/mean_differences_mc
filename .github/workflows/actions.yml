@@ -8,6 +8,10 @@ jobs:
     - name: Copia repositorio
       uses: actions/checkout@v2
     - name: Construye imagen
-      run: docker build --tag islasgeci/mean_differences_mc .
-    - name: Ejecuta objetivo principal del Makefile
-      run: docker run islasgeci/mean_differences_mc make
+      run: docker build --tag islasgeci .
+    - name: Verifica el formato
+      run: docker run islasgeci make check
+    - name: Corre pruebas y evalúa cobertura
+      run: docker run islasgeci make coverage
+    - name: Evalua resistencia a mutaciones
+      run: docker run islasgeci make mutants
