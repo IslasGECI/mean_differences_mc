@@ -94,13 +94,15 @@ def test_calculate_p_value_from_difference():
 
 def test_generalized_monte_carlo_test():
     data_chapman_example_4_2 = pd.read_csv("reports/tables/ejemplo_4_2_chapman.csv")
-    data_males = (
-        data_chapman_example_4_2[data_chapman_example_4_2["sex"] == "males"]
+    data_males = _select_sex(data_chapman_example_4_2, "males")
+    data_females = _select_sex(data_chapman_example_4_2, "females")
         .reset_index(drop=True)["mandible_lengths"]
-        .values.tolist()
-    )
-    data_females = (
-        data_chapman_example_4_2[data_chapman_example_4_2["sex"] == "females"]
+    assert chapman_4_2_p_value == obtained_p_value
+
+
+def _select_sex(data_chapman_example_4_2, sex):
+    return (
+        data_chapman_example_4_2[data_chapman_example_4_2["sex"] == sex]
         .reset_index(drop=True)["mandible_lengths"]
         .values.tolist()
     )
