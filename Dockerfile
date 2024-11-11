@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3
 COPY . /workdir
 WORKDIR /workdir
 RUN pip install \
