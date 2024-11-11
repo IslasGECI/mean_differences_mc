@@ -10,5 +10,6 @@ description-file = "README.md"
 home-page = "https://github.com/IslasGECI//mean_differences_mc"
 module = "/mean_differences_mc"
 requires = [
+    "pandas",
 ]
 requires-python=">=3.9"
