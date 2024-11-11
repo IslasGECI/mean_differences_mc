@@ -1,0 +1,9 @@
+services:
+  islasgeci:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: islasgeci/mean_differences_mc:latest
+    command: bash
+    volumes:
+      - $PWD:/workdir
