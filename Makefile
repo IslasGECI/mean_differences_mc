@@ -27,7 +27,7 @@ clean:
 	rm --force .coverage
 	rm --force .mutmut-cache
 
-coverage:
+coverage: setup
 	pytest --cov=${module} --cov-report=xml --verbose && \
 	codecov --token=${codecov_token}
 
@@ -44,6 +44,8 @@ linter:
 
 mutants:
 	mutmut run --paths-to-mutate ${module}
+
+setup: clean install
 
 tests:
 	pytest --verbose
